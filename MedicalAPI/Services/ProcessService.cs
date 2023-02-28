@@ -17,12 +17,7 @@ public static class ProcessService
                 {
                     NumUtente = 1,
                     Name = "John Doe",
-                    BirthDate = new Date
-                    {
-                        day = 1,
-                        month = 1,
-                        year = 2000
-                    }
+                    BirthDate = new DateTime(2000, 1, 1)
                 },
                 Exams = new List<Exam>
                 {
@@ -37,12 +32,7 @@ public static class ProcessService
                         Name = "Exam 2"
                     }
                 },
-                ProcessDate = new Date
-                {
-                    day = 1,
-                    month = 1,
-                    year = 2021
-                }
+                ProcessDate = new DateTime(2021, 1, 1)
             },
             new Process
             {
@@ -51,12 +41,7 @@ public static class ProcessService
                 {
                     NumUtente = 2,
                     Name = "Jane Doe",
-                    BirthDate = new Date
-                    {
-                        day = 2,
-                        month = 2,
-                        year = 2000
-                    }
+                    BirthDate = new DateTime(2000, 2, 2)
                 },
                 Exams = new List<Exam>
                 {
@@ -71,12 +56,7 @@ public static class ProcessService
                         Name = "Exam 4"
                     }
                 },
-                ProcessDate = new Date
-                {
-                    day = 2,
-                    month = 2,
-                    year = 2021
-                }
+                ProcessDate = new DateTime(2021, 2, 2)
             }
         };
 
@@ -102,7 +82,7 @@ public static class ProcessService
 
     public static Process? UpdateProcess(Process process)
     {
-        var index = Processes.FindIndex(p => p.Id == process.Id);
+        int index = Processes.FindIndex(p => p.Id == process.Id);
         if (index == -1)
         {
             return null;
@@ -114,7 +94,7 @@ public static class ProcessService
 
     public static void DeleteProcess(int id)
     {
-        var index = Processes.FindIndex(p => p.Id == id);
+        int index = Processes.FindIndex(p => p.Id == id);
         if (index != -1)
         {
             Processes.RemoveAt(index);
@@ -123,13 +103,13 @@ public static class ProcessService
 
     public static Exam AddExamToProcess(int processId, Exam exam)
     {
-        var process = GetProcessById(processId);
+        Process? process = GetProcessById(processId);
         if (process == null)
         {
             return new Exam();
         }
 
-        var nextId = process.Exams?.Count + 1 ?? 1;
+        int nextId = process.Exams?.Count + 1 ?? 1;
         exam.Id = nextId;
         process.Exams?.Add(exam);
         return exam;
@@ -137,13 +117,13 @@ public static class ProcessService
 
     public static Exam? UpdateExamFromProcess(int processId, Exam exam)
     {
-        var process = GetProcessById(processId);
+        Process? process = GetProcessById(processId);
         if (process == null)
         {
             return null;
         }
 
-        var index = process.Exams?.FindIndex(e => e.Id == exam.Id) ?? -1;
+        int index = process.Exams?.FindIndex(e => e.Id == exam.Id) ?? -1;
         if (index == -1)
         {
             return null;
@@ -155,13 +135,13 @@ public static class ProcessService
 
     public static void DeleteExamFromProcess(int processId, int examId)
     {
-        var process = GetProcessById(processId);
+        Process? process = GetProcessById(processId);
         if (process == null)
         {
             return;
         }
 
-        var index = process.Exams?.FindIndex(e => e.Id == examId) ?? -1;
+        int index = process.Exams?.FindIndex(e => e.Id == examId) ?? -1;
         if (index != -1)
         {
             process.Exams?.RemoveAt(index);
