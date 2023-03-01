@@ -1,10 +1,15 @@
 ﻿using MedicalExams.Models;
+using Microsoft.AspNetCore.Components;
+using Microsoft.JSInterop;
 using System.Text.Json;
 
 namespace MedicalExams.Services
 {
     public class ApiService
     {
+        [Inject]
+        IJSRuntime jsRuntime { get; set; }
+
         public HttpClient _httpClient;
         public JsonSerializerOptions options = new(JsonSerializerDefaults.Web);
 
@@ -22,7 +27,9 @@ namespace MedicalExams.Services
             {
                 string data = response.Content.ReadAsStringAsync().Result;
 
+
                 processes = JsonSerializer.Deserialize<List<Process>>(data, options);
+                Console.WriteLine(data);
             }
 
             return processes;

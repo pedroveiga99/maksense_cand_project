@@ -21,10 +21,10 @@ public class Exam
 
 
     [Required]
-    public int Id { get;}
+    public int Id { get; set; }  // Preferia que nao tivesse set; mas depois da problemas com o GET da API
     
     [Required]
-    public string? Name { get;}
+    public string? Name { get; set; }
 
     private Exam(int id, string name) 
     {

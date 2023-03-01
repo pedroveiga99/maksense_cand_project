@@ -24,10 +24,6 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXgucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/01 Perso/Projects/maksense/maksense_cand_project/MedicalExams/Shared/DetailsPopup.razor]
-build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXERldGFpbHNQb3B1cC5yYXpvcg==
-build_metadata.AdditionalFiles.CssScope = 
-
 [D:/01 Perso/Projects/maksense/maksense_cand_project/MedicalExams/Shared/InputCheckBoxList.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXElucHV0Q2hlY2tCb3hMaXN0LnJhem9y
 build_metadata.AdditionalFiles.CssScope = 
@@ -55,6 +51,10 @@ build_metadata.AdditionalFiles.CssScope = b-pif763rdsc
 [D:/01 Perso/Projects/maksense/maksense_cand_project/MedicalExams/Shared/DetailsIcon.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXERldGFpbHNJY29uLnJhem9y
 build_metadata.AdditionalFiles.CssScope = b-4a24xpv9nl
+
+[D:/01 Perso/Projects/maksense/maksense_cand_project/MedicalExams/Shared/DetailsPopup.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXERldGFpbHNQb3B1cC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = b-u11i4z6v1j
 
 [D:/01 Perso/Projects/maksense/maksense_cand_project/MedicalExams/Shared/MainLayout.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXE1haW5MYXlvdXQucmF6b3I=

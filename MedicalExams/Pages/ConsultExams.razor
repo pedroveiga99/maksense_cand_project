@@ -12,6 +12,7 @@
         <tr>
             <th>Id Processo</th>
             <th>Data Criação</th>
+            <th>Nome</th>
             <th>Quantidade de Exames</th>
             <th>+Info</th>
         </tr>
@@ -24,6 +25,7 @@
                 <tr>
                     <td>@process.Id</td>
                     <td>@process.ProcessDate.ToShortDateString()</td>
+                    <td>@process.Person.Name</td>
                     <td>@process.Exams.Count</td>
                     <td><DetailsIcon Popup="detailsPopup" SelectedProcess="process" Show="ShowDetails"></DetailsIcon></td>
                 </tr>
@@ -35,6 +37,9 @@
         }
     </tbody>
 </table>
+
+
+                            <!-- Linhas necessárias para todos os exames -->
 
 
 <!-- Popup with more details -->
@@ -54,7 +59,62 @@
     private void ShowDetails(Process process)
     {
         detailsPopup.Title = $"Mais Detalhes do Processo {process.Id.ToString()} ({process.ProcessDate.ToShortDateString()})";
-        detailsPopup.BodyContent = "";
+
+        string body = $@"
+        <table>
+            <thead>
+                <tr>
+                    <th>Info Pessoal</th>
+                    <th>Exams</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        <!-- Tabela Esquerda -->
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        Nome: {process.Person.Name}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        Nº Utente: {process.Person.NumUtente}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        Data Nascimento: {process.Person.BirthDate.ToShortDateString()}
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+
+                    </td>
+                    <td>
+                        <!-- Tabela Direita -->
+                        <table>
+                            <tbody>
+        ";
+
+        foreach(Exam e in process.Exams)
+        {
+            
+            body += $"<tr><td> {e.Id} : {e.Name} </td></tr>";
+        }
+
+        body += $@"
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        ";
+
+        detailsPopup.BodyContent = body;
         detailsPopup.Show();
     }
 

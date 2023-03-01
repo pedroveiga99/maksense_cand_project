@@ -8,7 +8,7 @@
 <h3>Marcação de Exames</h3>
 
 <EditForm Model="tempProcess" OnValidSubmit=@ValidFormSubmitted OnInvalidSubmit=@InvalidFormSubmitted>
-    <DataAnnotationsValidator />
+    <ObjectGraphDataAnnotationsValidator />
     <ValidationSummary />
 
     <table id="ScheduleExamsTable">
@@ -26,7 +26,7 @@
                     <div class="form-group">
                         <label for="nome">Nome</label><br />
                         <InputText @bind-Value=tempProcess.Person.Name></InputText>
-                        <ValidationMessage For="() => tempProcess.Person.Name" />
+                        <!-- <ValidationMessage For="() => tempProcess.Person.Name" /> -->
                     </div>
                 </td>
                 <td>
@@ -72,11 +72,7 @@
 @code {
     Process tempProcess = new Process
         {
-
-            Person = new Person
-            {
-                Name = "default"
-            },
+            Person = new Person(),
             ProcessDate = DateTime.Now,
             Exams = new List<Exam>{Exam.Exam1}  // Need to change
         };

@@ -33,3 +33,6 @@ D:\01 Perso\Projects\maksense\maksense_cand_project\MedicalExams\obj\Debug\net6.
 D:\01 Perso\Projects\maksense\maksense_cand_project\MedicalExams\obj\Debug\net6.0\scopedcss\Pages\ConsultExams.razor.rz.scp.css
 D:\01 Perso\Projects\maksense\maksense_cand_project\MedicalExams\obj\Debug\net6.0\scopedcss\Pages\ScheduleExams.razor.rz.scp.css
 D:\01 Perso\Projects\maksense\maksense_cand_project\MedicalExams\obj\Debug\net6.0\scopedcss\Shared\DetailsIcon.razor.rz.scp.css
+D:\01 Perso\Projects\maksense\maksense_cand_project\MedicalExams\bin\Debug\net6.0\Microsoft.AspNetCore.Components.DataAnnotations.Validation.dll
+D:\01 Perso\Projects\maksense\maksense_cand_project\MedicalExams\obj\Debug\net6.0\MedicalExams.csproj.CopyComplete
+D:\01 Perso\Projects\maksense\maksense_cand_project\MedicalExams\obj\Debug\net6.0\scopedcss\Shared\DetailsPopup.razor.rz.scp.css
