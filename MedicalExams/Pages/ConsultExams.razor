@@ -1,5 +1,6 @@
 ﻿@page "/consultExams"
 
+@inject IJSRuntime jsRuntime
 @inject ApiService api
 
 
@@ -9,11 +10,12 @@
 
     <thead>
         <tr>
-            <th>ID</th>
-            <th>Nome</th>
-            <th>Exams</th>
+            <th>Id Processo</th>
+            <th>Data Criação</th>
+            <th>Quantidade de Exames</th>
+            <th>+Info</th>
         </tr>
-    </thead>
+    </thead> 
     <tbody>
         @if (processes.Count != 0)
         {
@@ -21,27 +23,39 @@
             {
                 <tr>
                     <td>@process.Id</td>
-                    <td>@process.Person.Name</td>
-                    <td>@process.Exams[0]</td>
+                    <td>@process.ProcessDate.ToShortDateString()</td>
+                    <td>@process.Exams.Count</td>
+                    <td><DetailsIcon Popup="detailsPopup" SelectedProcess="process" Show="ShowDetails"></DetailsIcon></td>
                 </tr>
             }
         }
         else
         {
-            <tr><td colspan="3" style="text-align:center">No data to show</td></tr>
+            <tr><td colspan="2" style="text-align:center">No data to show</td></tr>
         }
     </tbody>
 </table>
 
 
+<!-- Popup with more details -->
+<DetailsPopup @ref="detailsPopup"></DetailsPopup>
+
 
 @code {
     List<Process> processes = new List<Process>();
+    public DetailsPopup detailsPopup;
 
 
     protected override async Task OnInitializedAsync()
     {
         processes = await api.GetProcessesAsync();
+    }
+
+    private void ShowDetails(Process process)
+    {
+        detailsPopup.Title = $"Mais Detalhes do Processo {process.Id.ToString()} ({process.ProcessDate.ToShortDateString()})";
+        detailsPopup.BodyContent = "";
+        detailsPopup.Show();
     }
 
 }

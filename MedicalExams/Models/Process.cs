@@ -14,6 +14,5 @@ public class Process
     public List<Exam> Exams { get; set; }
 
     [Required]
-    [DataType(DataType.Date)]  // Ensure that the date is in the correct format
     public DateTime ProcessDate { get; set; }
 }

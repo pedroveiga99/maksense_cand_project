@@ -1,11 +1,13 @@
 ﻿@page "/scheduleExams"
 
 @inject IJSRuntime jsRuntime
+@inject ApiService api
+
 
 
 <h3>Marcação de Exames</h3>
 
-<EditForm Model="tempProcess" OnSubmit=@FormSubmitted>
+<EditForm Model="tempProcess" OnValidSubmit=@ValidFormSubmitted OnInvalidSubmit=@InvalidFormSubmitted>
     <DataAnnotationsValidator />
     <ValidationSummary />
 
@@ -66,19 +68,17 @@
     </table>
 </EditForm>
 
-<br />
-<br />
-<hr />
-<br />
-
-
-
 
 @code {
     Process tempProcess = new Process
         {
-            Person = new Person(),
-            ProcessDate = DateTime.Now
+
+            Person = new Person
+            {
+                Name = "default"
+            },
+            ProcessDate = DateTime.Now,
+            Exams = new List<Exam>{Exam.Exam1}  // Need to change
         };
 
     protected List<string> SelectedIds = new List<string>();
@@ -88,4 +88,21 @@
         jsRuntime.InvokeVoidAsync("console.log", tempProcess);
     }
 
+    public async void ValidFormSubmitted()
+    {
+        jsRuntime.InvokeVoidAsync("console.log", "Valid");
+        jsRuntime.InvokeVoidAsync("console.log", tempProcess);
+
+        Process newProcess = await api.PostProcessAsync(tempProcess);
+        jsRuntime.InvokeVoidAsync("console.log", "Added");
+        jsRuntime.InvokeVoidAsync("console.log", newProcess);
+
+    }
+
+    public void InvalidFormSubmitted()
+    {
+        jsRuntime.InvokeVoidAsync("console.log", "Invalid");
+        jsRuntime.InvokeVoidAsync("console.log", tempProcess);
+
+    }
 }

@@ -28,5 +28,22 @@ namespace MedicalExams.Services
             return processes;
         }
 
+        public async Task<Process> PostProcessAsync(Process process)
+        {
+            HttpResponseMessage response = await _httpClient.PostAsJsonAsync("/Process", process, options);
+
+            Process addedProcess = new Process();
+
+            if (response.IsSuccessStatusCode)
+            {
+                string data = response.Content.ReadAsStringAsync().Result;
+
+                addedProcess = JsonSerializer.Deserialize<Process>(data, options);
+            }
+
+            return addedProcess;
+        }
+
+
     }
 }
