@@ -30,3 +30,4 @@ D:\01 Perso\Projects\maksense\maksense_cand_project\MedicalExams\obj\Debug\net6.
 D:\01 Perso\Projects\maksense\maksense_cand_project\MedicalExams\obj\Debug\net6.0\MedicalExams.pdb
 D:\01 Perso\Projects\maksense\maksense_cand_project\MedicalExams\obj\Debug\net6.0\MedicalExams.genruntimeconfig.cache
 D:\01 Perso\Projects\maksense\maksense_cand_project\MedicalExams\obj\Debug\net6.0\ref\MedicalExams.dll
+D:\01 Perso\Projects\maksense\maksense_cand_project\MedicalExams\obj\Debug\net6.0\scopedcss\Pages\ConsultExams.razor.rz.scp.css

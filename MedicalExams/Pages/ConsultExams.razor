@@ -1,7 +1,47 @@
 ﻿@page "/consultExams"
 
+@inject ApiService api
+
+
 <h3>Consulta de Exames</h3>
 
+<table id="ConsultExamsTable">
+
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Nome</th>
+            <th>Exams</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (processes.Count != 0)
+        {
+            @foreach (var process in processes)
+            {
+                <tr>
+                    <td>@process.Id</td>
+                    <td>@process.Person.Name</td>
+                    <td>@process.Exams[0]</td>
+                </tr>
+            }
+        }
+        else
+        {
+            <tr><td colspan="3" style="text-align:center">No data to show</td></tr>
+        }
+    </tbody>
+</table>
+
+
+
 @code {
+    List<Process> processes = new List<Process>();
+
+
+    protected override async Task OnInitializedAsync()
+    {
+        processes = await api.GetProcessesAsync();
+    }
 
 }
