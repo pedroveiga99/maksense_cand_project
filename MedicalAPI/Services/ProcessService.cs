@@ -62,7 +62,6 @@ public static class ProcessService
 
     }
 
-
     public static List<Process> GetAllProcesses()
     {
         return Processes;
@@ -147,5 +146,8 @@ public static class ProcessService
             process.Exams?.RemoveAt(index);
         }
     }
+
+
+
 
 }
