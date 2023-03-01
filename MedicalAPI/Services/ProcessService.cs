@@ -15,22 +15,14 @@ public static class ProcessService
                 Id = 1,
                 Person = new Person
                 {
-                    NumUtente = 1,
+                    NumUtente = 123456789,
                     Name = "John Doe",
                     BirthDate = new DateTime(2000, 1, 1)
                 },
                 Exams = new List<Exam>
                 {
-                    new Exam
-                    {
-                        Id = 1,
-                        Name = "Exam 1"
-                    },
-                    new Exam
-                    {
-                        Id = 2,
-                        Name = "Exam 2"
-                    }
+                    Exam.Exam1,
+                    Exam.Exam2
                 },
                 ProcessDate = new DateTime(2021, 1, 1)
             },
@@ -45,16 +37,8 @@ public static class ProcessService
                 },
                 Exams = new List<Exam>
                 {
-                    new Exam
-                    {
-                        Id = 3,
-                        Name = "Exam 3"
-                    },
-                    new Exam
-                    {
-                        Id = 4,
-                        Name = "Exam 4"
-                    }
+                    Exam.Exam3,
+                    Exam.Exam4,
                 },
                 ProcessDate = new DateTime(2021, 2, 2)
             }

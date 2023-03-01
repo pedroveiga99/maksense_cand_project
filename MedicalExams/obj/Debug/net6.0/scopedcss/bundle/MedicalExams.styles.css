@@ -13,6 +13,30 @@ table[b-muwr2nm098], th[b-muwr2nm098], td[b-muwr2nm098] {
     margin-right: auto;
     
 }
+/* _content/MedicalExams/Pages/ScheduleExams.razor.rz.scp.css */
+body[b-pif763rdsc] {
+}
+
+table[b-pif763rdsc], th[b-pif763rdsc], td[b-pif763rdsc] {
+    border: 1px solid black;
+    border-collapse: collapse;
+    text-align:center;
+    
+}
+
+tfoot[b-pif763rdsc]{
+    text-align:center
+}
+
+td[b-pif763rdsc]{
+    padding:1%
+}
+
+#ScheduleExamsTable[b-pif763rdsc] {
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+}
 /* _content/MedicalExams/Shared/MainLayout.razor.rz.scp.css */
 .page[b-4f33u9fn0p] {
     position: relative;

@@ -1,22 +1,22 @@
-﻿body {
+body[b-pif763rdsc] {
 }
 
-table, th, td {
+table[b-pif763rdsc], th[b-pif763rdsc], td[b-pif763rdsc] {
     border: 1px solid black;
     border-collapse: collapse;
     text-align:center;
     
 }
 
-tfoot{
+tfoot[b-pif763rdsc]{
     text-align:center
 }
 
-td{
+td[b-pif763rdsc]{
     padding:1%
 }
 
-#ScheduleExamsTable {
+#ScheduleExamsTable[b-pif763rdsc] {
     width: 60%;
     margin-left: auto;
     margin-right: auto;

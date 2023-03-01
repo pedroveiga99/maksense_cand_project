@@ -24,8 +24,16 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXgucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
+[D:/01 Perso/Projects/maksense/maksense_cand_project/MedicalExams/Shared/InputCheckBoxList.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXElucHV0Q2hlY2tCb3hMaXN0LnJhem9y
+build_metadata.AdditionalFiles.CssScope = 
+
 [D:/01 Perso/Projects/maksense/maksense_cand_project/MedicalExams/Shared/SurveyPrompt.razor]
 build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXFN1cnZleVByb21wdC5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/01 Perso/Projects/maksense/maksense_cand_project/MedicalExams/Shared/TestCheckBoxList.razor]
+build_metadata.AdditionalFiles.TargetPath = U2hhcmVkXFRlc3RDaGVja0JveExpc3QucmF6b3I=
 build_metadata.AdditionalFiles.CssScope = 
 
 [D:/01 Perso/Projects/maksense/maksense_cand_project/MedicalExams/_Imports.razor]

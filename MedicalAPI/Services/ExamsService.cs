@@ -8,34 +8,7 @@ public static class ExamsServices
 
     static ExamsServices()
     {
-        Exams = new List<Exam>
-        {
-            new Exam
-            {
-                Id = 1,
-                Name = "Exam 1"
-            },
-            new Exam
-            {
-                Id = 2,
-                Name = "Exam 2"
-            },
-            new Exam
-            {
-                Id = 3,
-                Name = "Exam 3"
-            },
-            new Exam
-            {
-                Id = 4,
-                Name = "Exam 4"
-            },
-            new Exam
-            {
-                Id = 5,
-                Name = "Exam 5"
-            },
-        };
+        Exams = Exam.PossibleExams;
     }
 
     public static void AddExam(Exam exam)

@@ -9,7 +9,7 @@ public class Person
     public int NumUtente { get; set; }
 
     [Required]
-    public string? Name { get; set; }
+    public string Name { get; set; }
 
     [Required]
     [DataType(DataType.Date)]  // Ensure that the date is in the correct format (yyyy-mm-dd)
