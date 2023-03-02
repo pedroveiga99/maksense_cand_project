@@ -108,6 +108,10 @@
             "Microsoft.AspNetCore.Components.DataAnnotations.Validation": {
               "target": "Package",
               "version": "[3.2.0-rc1.20223.4, )"
+            },
+            "MudBlazor": {
+              "target": "Package",
+              "version": "[6.1.9, )"
             }
           },
           "imports": [

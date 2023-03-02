@@ -30,7 +30,7 @@ namespace MedicalExams.Services
 
 
                 processes = JsonSerializer.Deserialize<List<Process>>(data, options);
-                Console.WriteLine(data);
+                //Console.WriteLine(data);
             }
 
             return processes;

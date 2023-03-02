@@ -5,9 +5,17 @@
 @inject ApiService api
 
 
+
 <h3>Consulta de Exames</h3>
 <br />
 <br />
+
+<!--
+<div style="text-align:center">
+    <EditForm Model="submitedNumUtente">
+        Numero de utente: <InputNumber @bind-Value=submitedNumUtente ></InputNumber>
+    </EditForm>
+</div>
 
 <table id="ConsultExamsTable" style="text-align:center">
 
@@ -41,8 +49,49 @@
     </tbody>
 </table>
 
+<br />
+<br />
+-->
+<!--
+<MudTextField 
+    @bind-Value="searchString" 
+    Placeholder="Search" 
+    Adornment="Adornment.Start" 
+    AdornmentIcon="@Icons.Material.Filled.Search" 
+    IconSize="Size.Medium" 
+    Class="mt-0">
+</MudTextField>
 
-                            <!-- Linhas necessárias para todos os exames -->
+-->
+
+<MudTable Items="@processes" Hover="true" Filter="new Func<Process,bool>(FilterFunc)" FixedHeader="true" Height="@(true ?"500px":"")">
+    <ToolBarContent>
+        <MudTextField 
+            @bind-Value="searchString" 
+            Placeholder="Pesquisar Nome ou Nº Utente"
+            Adornment="Adornment.Start" 
+            AdornmentIcon="@Icons.Material.Filled.Search"
+            Class="mt-0">
+        ></MudTextField>
+    </ToolBarContent>
+    <HeaderContent>
+        <MudTh>Id</MudTh>
+        <MudTh>Data Criação</MudTh>
+        <MudTh>Nome</MudTh>
+        <MudTh>Quantidade de Exames</MudTh>
+        <MudTh>+Info</MudTh>
+    </HeaderContent>
+    <RowTemplate>
+        <MudTd DataLabel="Id">@context.Id</MudTd>
+        <MudTd DataLabel="Data Criação">@context.ProcessDate.ToShortDateString()</MudTd>
+        <MudTd DataLabel="Nome">@context.Person.Name</MudTd>
+        <MudTd DataLabel="Quantidade de Exames">@context.Exams.Count</MudTd>
+        <MudTd DataLabel="+Info"><DetailsIcon Popup="detailsPopup" SelectedProcess="@context" Show="ShowDetails"></DetailsIcon></MudTd>
+    </RowTemplate>
+    <PagerContent>
+        <MudTablePager PageSizeOptions="@pageSizeOptions" RowsPerPageString="Processos por página" />
+    </PagerContent>
+</MudTable>
 
 
 <!-- Popup with more details -->
@@ -52,6 +101,10 @@
 @code {
     List<Process> processes = new List<Process>();
     public DetailsPopup detailsPopup;
+    public int submitedNumUtente;
+
+    public int[] pageSizeOptions = { 5, 7, 10, 20, int.MaxValue };
+    public string searchString = "";
 
 
     protected override async Task OnInitializedAsync()
@@ -67,4 +120,18 @@
         detailsPopup.Show();
     }
 
+    private bool FilterFunc(Process process)
+    {
+        if (string.IsNullOrWhiteSpace(searchString))
+            return true;
+
+        if (process.Person.Name.Contains(searchString, StringComparison.OrdinalIgnoreCase))
+            return true;
+
+        if (process.Person.NumUtente.ToString().Contains(searchString))
+            return true;
+
+
+        return false;
+    }
 }

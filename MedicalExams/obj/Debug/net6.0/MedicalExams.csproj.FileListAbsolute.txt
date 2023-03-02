@@ -38,3 +38,13 @@ D:\01 Perso\Projects\maksense\maksense_cand_project\MedicalExams\obj\Debug\net6.
 D:\01 Perso\Projects\maksense\maksense_cand_project\MedicalExams\obj\Debug\net6.0\scopedcss\Shared\DetailsPopup.razor.rz.scp.css
 D:\01 Perso\Projects\maksense\maksense_cand_project\MedicalExams\bin\Debug\net6.0\ClassesLibrary.dll
 D:\01 Perso\Projects\maksense\maksense_cand_project\MedicalExams\bin\Debug\net6.0\ClassesLibrary.pdb
+D:\01 Perso\Projects\maksense\maksense_cand_project\MedicalExams\bin\Debug\net6.0\Microsoft.AspNetCore.Authorization.dll
+D:\01 Perso\Projects\maksense\maksense_cand_project\MedicalExams\bin\Debug\net6.0\Microsoft.AspNetCore.Components.dll
+D:\01 Perso\Projects\maksense\maksense_cand_project\MedicalExams\bin\Debug\net6.0\Microsoft.AspNetCore.Components.Forms.dll
+D:\01 Perso\Projects\maksense\maksense_cand_project\MedicalExams\bin\Debug\net6.0\Microsoft.AspNetCore.Components.Web.dll
+D:\01 Perso\Projects\maksense\maksense_cand_project\MedicalExams\bin\Debug\net6.0\Microsoft.AspNetCore.Metadata.dll
+D:\01 Perso\Projects\maksense\maksense_cand_project\MedicalExams\bin\Debug\net6.0\Microsoft.Extensions.DependencyInjection.dll
+D:\01 Perso\Projects\maksense\maksense_cand_project\MedicalExams\bin\Debug\net6.0\Microsoft.Extensions.Logging.Abstractions.dll
+D:\01 Perso\Projects\maksense\maksense_cand_project\MedicalExams\bin\Debug\net6.0\Microsoft.JSInterop.dll
+D:\01 Perso\Projects\maksense\maksense_cand_project\MedicalExams\bin\Debug\net6.0\MudBlazor.dll
+D:\01 Perso\Projects\maksense\maksense_cand_project\MedicalExams\bin\Debug\net6.0\System.IO.Pipelines.dll

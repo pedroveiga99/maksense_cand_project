@@ -10,6 +10,7 @@ public class Exam
     public static Exam Exam4 = new(4, "Exam 4");
     public static Exam Exam5 = new(5, "Exam 5");
 
+
     public static List<Exam> PossibleExams = new List<Exam>
     {
         Exam1,
