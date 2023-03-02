@@ -30,3 +30,6 @@ D:\01 Perso\Projects\maksense\maksense_cand_project\MedicalAPI\obj\Debug\net6.0\
 D:\01 Perso\Projects\maksense\maksense_cand_project\MedicalAPI\obj\Debug\net6.0\MedicalAPI.pdb
 D:\01 Perso\Projects\maksense\maksense_cand_project\MedicalAPI\obj\Debug\net6.0\MedicalAPI.genruntimeconfig.cache
 D:\01 Perso\Projects\maksense\maksense_cand_project\MedicalAPI\obj\Debug\net6.0\ref\MedicalAPI.dll
+D:\01 Perso\Projects\maksense\maksense_cand_project\MedicalAPI\bin\Debug\net6.0\Microsoft.AspNetCore.Components.DataAnnotations.Validation.dll
+D:\01 Perso\Projects\maksense\maksense_cand_project\MedicalAPI\bin\Debug\net6.0\ClassesLibrary.dll
+D:\01 Perso\Projects\maksense\maksense_cand_project\MedicalAPI\bin\Debug\net6.0\ClassesLibrary.pdb

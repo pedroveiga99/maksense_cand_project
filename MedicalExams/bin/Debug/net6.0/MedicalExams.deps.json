@@ -8,6 +8,7 @@
     ".NETCoreApp,Version=v6.0": {
       "MedicalExams/1.0.0": {
         "dependencies": {
+          "ClassesLibrary": "1.0.0",
           "Microsoft.AspNetCore.Components.DataAnnotations.Validation": "3.2.0-rc1.20223.4"
         },
         "runtime": {
@@ -55,7 +56,15 @@
         }
       },
       "Microsoft.Extensions.Primitives/3.1.3": {},
-      "Microsoft.JSInterop/3.1.3": {}
+      "Microsoft.JSInterop/3.1.3": {},
+      "ClassesLibrary/1.0.0": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Components.DataAnnotations.Validation": "3.2.0-rc1.20223.4"
+        },
+        "runtime": {
+          "ClassesLibrary.dll": {}
+        }
+      }
     }
   },
   "libraries": {
@@ -140,6 +149,11 @@
       "sha512": "sha512-5Li/Flei8VMoQYR7nB3z0f5D6n0kzUAbqb70R8WnXAh8nm1EUFAP6IxYa/wPLgpJ5ihJPHqAyKdTW9SGffaMQg==",
       "path": "microsoft.jsinterop/3.1.3",
       "hashPath": "microsoft.jsinterop.3.1.3.nupkg.sha512"
+    },
+    "ClassesLibrary/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
     }
   }
 }

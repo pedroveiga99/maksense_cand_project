@@ -1,7 +1,7 @@
-﻿using MedicalExams.Models;
-using Microsoft.AspNetCore.Components;
+﻿using Microsoft.AspNetCore.Components;
 using Microsoft.JSInterop;
 using System.Text.Json;
+using ClassesLibrary;
 
 namespace MedicalExams.Services
 {

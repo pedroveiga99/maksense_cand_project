@@ -1,0 +1,12 @@
+D:\01 Perso\Projects\maksense\maksense_cand_project\ClassesLibrary\bin\Debug\net6.0\ClassesLibrary.deps.json
+D:\01 Perso\Projects\maksense\maksense_cand_project\ClassesLibrary\bin\Debug\net6.0\ClassesLibrary.dll
+D:\01 Perso\Projects\maksense\maksense_cand_project\ClassesLibrary\bin\Debug\net6.0\ClassesLibrary.pdb
+D:\01 Perso\Projects\maksense\maksense_cand_project\ClassesLibrary\obj\Debug\net6.0\ClassesLibrary.csproj.AssemblyReference.cache
+D:\01 Perso\Projects\maksense\maksense_cand_project\ClassesLibrary\obj\Debug\net6.0\ClassesLibrary.GeneratedMSBuildEditorConfig.editorconfig
+D:\01 Perso\Projects\maksense\maksense_cand_project\ClassesLibrary\obj\Debug\net6.0\ClassesLibrary.AssemblyInfoInputs.cache
+D:\01 Perso\Projects\maksense\maksense_cand_project\ClassesLibrary\obj\Debug\net6.0\ClassesLibrary.AssemblyInfo.cs
+D:\01 Perso\Projects\maksense\maksense_cand_project\ClassesLibrary\obj\Debug\net6.0\ClassesLibrary.csproj.CoreCompileInputs.cache
+D:\01 Perso\Projects\maksense\maksense_cand_project\ClassesLibrary\obj\Debug\net6.0\ClassesLibrary.dll
+D:\01 Perso\Projects\maksense\maksense_cand_project\ClassesLibrary\obj\Debug\net6.0\refint\ClassesLibrary.dll
+D:\01 Perso\Projects\maksense\maksense_cand_project\ClassesLibrary\obj\Debug\net6.0\ClassesLibrary.pdb
+D:\01 Perso\Projects\maksense\maksense_cand_project\ClassesLibrary\obj\Debug\net6.0\ref\ClassesLibrary.dll

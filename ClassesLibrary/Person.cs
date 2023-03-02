@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace MedicalExams.Models;
+namespace ClassesLibrary;
 
 public class Person
 {    

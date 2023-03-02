@@ -1,4 +1,4 @@
-using MedicalAPI.Models;
+using ClassesLibrary;
 using MedicalAPI.Services;
 using Microsoft.AspNetCore.Mvc;
 

@@ -1,4 +1,4 @@
-using MedicalAPI.Models;
+using ClassesLibrary;
 
 namespace MedicalAPI.Services;
 

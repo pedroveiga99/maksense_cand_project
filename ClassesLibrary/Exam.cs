@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace MedicalAPI.Models;
+namespace ClassesLibrary;
 
 public class Exam
 {
@@ -9,6 +9,7 @@ public class Exam
     public static Exam Exam3 = new(3, "Exam 3");
     public static Exam Exam4 = new(4, "Exam 4");
     public static Exam Exam5 = new(5, "Exam 5");
+
     public static List<Exam> PossibleExams = new List<Exam>
     {
         Exam1,
@@ -17,12 +18,13 @@ public class Exam
         Exam4,
         Exam5
     };
+
+
+    [Required]
+    public int Id { get; set; }  // Preferia que nao tivesse set; mas depois da problemas com o GET da API
     
     [Required]
-    public int Id { get; set;}
-    
-    [Required]
-    public string? Name { get; set;}
+    public string? Name { get; set; }
 
     private Exam(int id, string name) 
     {
@@ -30,6 +32,5 @@ public class Exam
         this.Name = name;
     }
 
-    // This could be eliminated eventually
     public Exam() { }
 }
