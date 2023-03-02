@@ -2,6 +2,7 @@
 
 @inject IJSRuntime jsRuntime
 @inject ApiService api
+@inject NavigationManager NavManager
 
 
 
@@ -21,7 +22,7 @@
                 <td style="width:35%">
                     <div class="form-group">
                         <label for="numUtente">Número de Utente:</label><br />
-                        <InputNumber @bind-Value=tempProcess.Person.NumUtente></InputNumber>
+                        <InputNumber Arrows="false" @bind-Value=tempProcess.Person.NumUtente></InputNumber>
                         <ValidationMessage For="() => tempProcess.Person.NumUtente" />
                     </div>
                 </td>
@@ -44,7 +45,7 @@
             <!-- Exams -->
             <tr>
                 <td colspan="3">
-                    <TestCheckBoxList Data="@AvailableExams" SelectedValues="@SelectedExams" />
+                    <TestCheckBoxList Data="@AvailableExams" SelectedValues="@tempProcess.Exams" />
                     <ValidationMessage For="() => tempProcess.Exams" />
                 </td>
             </tr>
@@ -59,48 +60,53 @@
     </table>
 </EditForm>
 
+<!-- Popup with more details of confirmation -->
+<DetailsPopup @ref="confirmationPopup"></DetailsPopup>
+
 
 @code {
     Process tempProcess = new Process
         {
             Person = new Person(),
-            Exams = new List<Exam>(),
-            ProcessDate = DateTime.Now,
+            Exams = new List<Exam>()
         };
 
     public List<Exam> AvailableExams = new List<Exam>();
-    public List<Exam> SelectedExams = new List<Exam>();
+    public DetailsPopup confirmationPopup;
 
     protected override async Task OnInitializedAsync()
     {
         AvailableExams = await api.GetAllAvailableExams();
     }
 
-
-    public void FormSubmitted()
-    {
-        jsRuntime.InvokeVoidAsync("console.log", tempProcess);
-    }
-
     public async void ValidFormSubmitted()
     {
+        tempProcess.ProcessDate = DateTime.Now;
+
         jsRuntime.InvokeVoidAsync("console.log", "Valid");
         jsRuntime.InvokeVoidAsync("console.log", tempProcess);
 
         Process newProcess = await api.PostProcessAsync(tempProcess);
-        jsRuntime.InvokeVoidAsync("console.log", "Added");
-        jsRuntime.InvokeVoidAsync("console.log", newProcess);
+
+        confirmationPopup.Title = $"Adicionado o Processo {newProcess.Id.ToString()} ({newProcess.ProcessDate.ToShortDateString()})";
+        confirmationPopup.process = newProcess;
+        confirmationPopup.Show();
+
+        // Reset form information
+        tempProcess = new Process
+        {
+            Person = new Person(),
+            Exams = new List<Exam>()
+        };
+        StateHasChanged();
+
+        
 
     }
 
     public void InvalidFormSubmitted()
     {
-        tempProcess.Exams = SelectedExams;
-
-
         jsRuntime.InvokeVoidAsync("console.log", "Invalid");
-        jsRuntime.InvokeVoidAsync("console.log", SelectedExams);
         jsRuntime.InvokeVoidAsync("console.log", tempProcess);
-
     }
 }

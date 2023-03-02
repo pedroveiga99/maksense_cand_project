@@ -5,7 +5,7 @@ VisualStudioVersion = 17.5.33414.496
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MedicalExams", "MedicalExams.csproj", "{22311C26-DC1F-47DE-8E8F-FCAD739D3454}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassesLibrary", "..\ClassesLibrary\ClassesLibrary.csproj", "{257DD4ED-E321-4D65-9F4A-7BF0EC4283EE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClassesLibrary", "..\ClassesLibrary\ClassesLibrary.csproj", "{257DD4ED-E321-4D65-9F4A-7BF0EC4283EE}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MedicalAPI", "..\MedicalAPI\MedicalAPI.csproj", "{1078F3B8-6902-4366-8E66-6ADAE8D3FF28}"
 EndProject

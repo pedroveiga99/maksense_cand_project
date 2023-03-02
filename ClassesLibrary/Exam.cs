@@ -24,7 +24,7 @@ public class Exam
     public int Id { get; set; }  // Preferia que nao tivesse set; mas depois da problemas com o GET da API
     
     [Required]
-    public string? Name { get; set; }
+    public string? Name { get; set; }  // Preferia que nao tivesse set; mas depois da problemas com o GET da API
 
     private Exam(int id, string name) 
     {

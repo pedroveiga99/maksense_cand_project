@@ -89,46 +89,29 @@ public static class ProcessService
         Process? process = GetProcessById(processId);
         if (process == null)
         {
-            return new Exam();
+            return null;
         }
 
-        int nextId = process.Exams?.Count + 1 ?? 1;
-        exam.Id = nextId;
-        process.Exams?.Add(exam);
+        process.Exams.Add(exam);
         return exam;
     }
 
-    public static Exam? UpdateExamFromProcess(int processId, Exam exam)
+
+    public static Exam DeleteExamFromProcess(int processId, int examId)
     {
         Process? process = GetProcessById(processId);
         if (process == null)
         {
             return null;
-        }
-
-        int index = process.Exams?.FindIndex(e => e.Id == exam.Id) ?? -1;
-        if (index == -1)
-        {
-            return null;
-        }
-
-        process.Exams[index] = exam;
-        return exam;
-    }
-
-    public static void DeleteExamFromProcess(int processId, int examId)
-    {
-        Process? process = GetProcessById(processId);
-        if (process == null)
-        {
-            return;
         }
 
         int index = process.Exams?.FindIndex(e => e.Id == examId) ?? -1;
         if (index != -1)
         {
             process.Exams?.RemoveAt(index);
+            return process.Exams[index];
         }
+        return null;
     }
 
 

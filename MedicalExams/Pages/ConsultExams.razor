@@ -9,7 +9,7 @@
 <br />
 <br />
 
-<table id="ConsultExamsTable">
+<table id="ConsultExamsTable" style="text-align:center">
 
     <thead>
         <tr>
@@ -63,61 +63,7 @@
     {
         detailsPopup.Title = $"Mais Detalhes do Processo {process.Id.ToString()} ({process.ProcessDate.ToShortDateString()})";
 
-        string body = $@"
-        <table style=""width:100%"">
-            <thead>
-                <tr>
-                    <th>Info Pessoal</th>
-                    <th>Exams</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td style=""width:60%"";>
-                        <!-- Tabela Esquerda -->
-                        <table>
-                            <tbody>
-                                <tr>
-                                    <td>
-                                        Nome: {process.Person.Name}
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        Nº Utente: {process.Person.NumUtente}
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        Data Nascimento: {process.Person.BirthDate.ToShortDateString()}
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-
-                    </td>
-                    <td>
-                        <!-- Tabela Direita -->
-                        <table>
-                            <tbody>
-        ";
-
-        foreach(Exam e in process.Exams)
-        {
-            
-            body += $"<tr><td> {e.Id} - {e.Name} </td></tr>";
-        }
-
-        body += $@"
-                            </tbody>
-                        </table>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        ";
-
-        detailsPopup.BodyContent = body;
+        detailsPopup.process = process;
         detailsPopup.Show();
     }
 
