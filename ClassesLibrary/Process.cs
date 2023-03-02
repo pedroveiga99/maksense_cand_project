@@ -10,7 +10,7 @@ public class Process
     [ValidateComplexType]  // It uses a experimental package (https://www.nuget.org/packages/Microsoft.AspNetCore.Components.DataAnnotations.Validation)
     public Person Person { get; set; }
 
-    [Required]
+    [Required]  // Será necessário? Já tem o MinLength...
     [MinLength(1, ErrorMessage = "Necessita de selecionar pelo menos um exame")]
     public List<Exam> Exams { get; set; }
 

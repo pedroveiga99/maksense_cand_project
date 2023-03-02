@@ -2,6 +2,7 @@
 using Microsoft.JSInterop;
 using System.Text.Json;
 using ClassesLibrary;
+//using System.Diagnostics;
 
 namespace MedicalExams.Services
 {
@@ -51,6 +52,22 @@ namespace MedicalExams.Services
             return addedProcess;
         }
 
+        public async Task<List<Exam>> GetAllAvailableExams()
+        {
+            HttpResponseMessage response = await _httpClient.GetAsync("/Exam");
+            List<Exam> exams = new List<Exam>();
+
+            if (response.IsSuccessStatusCode)
+            {
+                string data = response.Content.ReadAsStringAsync().Result;
+
+
+                exams = JsonSerializer.Deserialize<List<Exam>>(data, options);
+            }
+
+            return exams;
+
+        }
 
     }
 }
