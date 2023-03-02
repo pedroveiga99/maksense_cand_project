@@ -1,14 +1,13 @@
 body[b-muwr2nm098] {
 }
 
-table[b-muwr2nm098], th[b-muwr2nm098], td[b-muwr2nm098] {
-    border: 1px solid black;
-    border-collapse: collapse;
-}
-
 #ConsultExamsTable[b-muwr2nm098] {
-    width: 60%;
+    width: 70%;
     margin-left: auto;
     margin-right: auto;
-    
+    border: 2px solid black;
+    border-radius: 10px;
+    border-collapse: separate;
+    padding: 3px 10px 3px 10px;
+    table-layout: auto;
 }

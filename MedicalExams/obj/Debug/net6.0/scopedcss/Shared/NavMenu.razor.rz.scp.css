@@ -4,7 +4,7 @@
 
 .top-row[b-08rui9h39v] {
     height: 3.5rem;
-    background-color: rgba(0,0,0,0.4);
+    background-color: rgba(0,0,0, 0.3);
 }
 
 .navbar-brand[b-08rui9h39v] {
@@ -32,7 +32,8 @@
     }
 
     .nav-item[b-08rui9h39v]  a {
-        color: #d7d7d7;
+        /*        color: #d7d7d7;*/
+        color: white;
         border-radius: 4px;
         height: 3rem;
         display: flex;

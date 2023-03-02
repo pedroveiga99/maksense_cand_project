@@ -2,40 +2,39 @@
 body[b-muwr2nm098] {
 }
 
-table[b-muwr2nm098], th[b-muwr2nm098], td[b-muwr2nm098] {
-    border: 1px solid black;
-    border-collapse: collapse;
-}
-
 #ConsultExamsTable[b-muwr2nm098] {
-    width: 60%;
+    width: 70%;
     margin-left: auto;
     margin-right: auto;
-    
+    border: 2px solid black;
+    border-radius: 10px;
+    border-collapse: separate;
+    padding: 3px 10px 3px 10px;
+    table-layout: auto;
 }
 /* _content/MedicalExams/Pages/ScheduleExams.razor.rz.scp.css */
 body[b-pif763rdsc] {
 }
 
 table[b-pif763rdsc], th[b-pif763rdsc], td[b-pif763rdsc] {
-    border: 1px solid black;
+    text-align: center;
     border-collapse: collapse;
-    text-align:center;
-    
 }
 
 tfoot[b-pif763rdsc]{
     text-align:center
 }
 
-td[b-pif763rdsc]{
-    padding:1%
+td[b-pif763rdsc] {
+    border: 1px solid black;
+    padding: 1%
 }
 
 #ScheduleExamsTable[b-pif763rdsc] {
     width: 60%;
     margin-left: auto;
     margin-right: auto;
+    border: 1px solid black;
 }
 /* _content/MedicalExams/Shared/DetailsIcon.razor.rz.scp.css */
 a[b-4a24xpv9nl],
@@ -61,7 +60,8 @@ main[b-4f33u9fn0p] {
 }
 
 .sidebar[b-4f33u9fn0p] {
-    background-image: linear-gradient(180deg, rgb(5, 39, 103) 0%, #3a0647 70%);
+    /*background-image: linear-gradient(180deg, rgb(5, 39, 103) 0%, #3a0647 70%);*/
+    background: linear-gradient(0deg, rgba(205,0,22,1) 0%, rgba(108,117,125,1) 100%);
 }
 
 .top-row[b-4f33u9fn0p] {
@@ -127,7 +127,7 @@ main[b-4f33u9fn0p] {
 
 .top-row[b-08rui9h39v] {
     height: 3.5rem;
-    background-color: rgba(0,0,0,0.4);
+    background-color: rgba(0,0,0, 0.3);
 }
 
 .navbar-brand[b-08rui9h39v] {
@@ -155,7 +155,8 @@ main[b-4f33u9fn0p] {
     }
 
     .nav-item[b-08rui9h39v]  a {
-        color: #d7d7d7;
+        /*        color: #d7d7d7;*/
+        color: white;
         border-radius: 4px;
         height: 3rem;
         display: flex;

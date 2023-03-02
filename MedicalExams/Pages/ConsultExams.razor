@@ -6,12 +6,14 @@
 
 
 <h3>Consulta de Exames</h3>
+<br />
+<br />
 
 <table id="ConsultExamsTable">
 
     <thead>
         <tr>
-            <th>Id Processo</th>
+            <th>Id</th>
             <th>Data Criação</th>
             <th>Nome</th>
             <th>Quantidade de Exames</th>
@@ -62,7 +64,7 @@
         detailsPopup.Title = $"Mais Detalhes do Processo {process.Id.ToString()} ({process.ProcessDate.ToShortDateString()})";
 
         string body = $@"
-        <table>
+        <table style=""width:100%"">
             <thead>
                 <tr>
                     <th>Info Pessoal</th>
@@ -71,7 +73,7 @@
             </thead>
             <tbody>
                 <tr>
-                    <td>
+                    <td style=""width:60%"";>
                         <!-- Tabela Esquerda -->
                         <table>
                             <tbody>
@@ -103,7 +105,7 @@
         foreach(Exam e in process.Exams)
         {
             
-            body += $"<tr><td> {e.Id} : {e.Name} </td></tr>";
+            body += $"<tr><td> {e.Id} - {e.Name} </td></tr>";
         }
 
         body += $@"

@@ -2,22 +2,22 @@ body[b-pif763rdsc] {
 }
 
 table[b-pif763rdsc], th[b-pif763rdsc], td[b-pif763rdsc] {
-    border: 1px solid black;
+    text-align: center;
     border-collapse: collapse;
-    text-align:center;
-    
 }
 
 tfoot[b-pif763rdsc]{
     text-align:center
 }
 
-td[b-pif763rdsc]{
-    padding:1%
+td[b-pif763rdsc] {
+    border: 1px solid black;
+    padding: 1%
 }
 
 #ScheduleExamsTable[b-pif763rdsc] {
     width: 60%;
     margin-left: auto;
     margin-right: auto;
+    border: 1px solid black;
 }
