@@ -6,7 +6,6 @@
 @inject IDialogService DialogService
 
 
-
 <h3>Marcação de Exames</h3>
 <br />
 <br />
@@ -58,18 +57,10 @@
                             <MudItem>
                                 <MudPaper Outlined="true" Class="px-3 justify-start">
                                     <MudCheckBox Label="@e.Name" CheckedChanged="((bool state) => checkExam(state, e))"></MudCheckBox>
-
                                 </MudPaper>
                             </MudItem>
                         }
-
                     </MudGrid>
-                    <!--
-                    @foreach (Exam e in AvailableExams)
-                    {
-                        <MudCheckBox Label="@e.Name" CheckedChanged="((bool state) => checkExam(state, e))"></MudCheckBox>
-                    }
-                    -->
                     @if (!examsValid)
                     {
                         <br />
@@ -136,9 +127,7 @@
     public async void ValidFormSubmitted()
     {
         tempProcess.ProcessDate = DateTime.Now;
-
-        jsRuntime.InvokeVoidAsync("console.log", "Valid");
-        jsRuntime.InvokeVoidAsync("console.log", tempProcess);
+        tempProcess.Person.BirthDate = (DateTime)selectedDate;
 
         Process newProcess = await api.PostProcessAsync(tempProcess);
 
@@ -148,7 +137,7 @@
         var parameters = new DialogParameters();
         parameters.Add("SelectedProcess", newProcess);
 
-        string title = $"Adicionado o Processo {newProcess.Id.ToString()} ({newProcess.ProcessDate.ToShortDateString()})";
+        string title = $"Adicionado o Processo nº:{newProcess.Id.ToString()} ({newProcess.ProcessDate.ToShortDateString()})";
 
         DialogService.Show<DetailsPopup>(title, parameters, options);
 
@@ -173,10 +162,6 @@
             examsValid = true;
         }
 
-
-        jsRuntime.InvokeVoidAsync("console.log", "Invalid");
-        jsRuntime.InvokeVoidAsync("console.log", tempProcess);
         StateHasChanged();
-
     }
 }

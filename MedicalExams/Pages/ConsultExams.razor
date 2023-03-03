@@ -80,7 +80,9 @@
         var parameters = new DialogParameters();
         parameters.Add("SelectedProcess", SelectedProcess);
 
-        DialogService.Show<DetailsPopup>("Title", parameters, options);
+        string title = $"Processo nº:{SelectedProcess.Id.ToString()} ({SelectedProcess.ProcessDate.ToShortDateString()})";
+
+        DialogService.Show<DetailsPopup>(title, parameters, options);
     }
 
 

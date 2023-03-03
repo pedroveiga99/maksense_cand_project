@@ -28,9 +28,7 @@ namespace MedicalExams.Services
             {
                 string data = response.Content.ReadAsStringAsync().Result;
 
-
                 processes = JsonSerializer.Deserialize<List<Process>>(data, options);
-                //Console.WriteLine(data);
             }
 
             return processes;

@@ -7,16 +7,16 @@
                 <MudCard Class="mud-height-full d-flex">
                     <MudCardContent>
                         <MudText Typo="Typo.h6">Info Pessoal</MudText>
-                        <MudText Class="py-1">Nome: @SelectedProcess.Person.Name</MudText>
-                        <MudText Class="py-1">Nº Utente: @SelectedProcess.Person.NumUtente</MudText>
-                        <MudText Class="py-1">Data Nascimento: @SelectedProcess.Person.BirthDate.ToShortDateString()</MudText>
+                        <MudText Class="py-1"><b>Nome:</b> @SelectedProcess.Person.Name</MudText>
+                        <MudText Class="py-1"><b>Nº Utente:</b> @SelectedProcess.Person.NumUtente</MudText>
+                        <MudText Class="py-1"><b>Data Nascimento:</b> @SelectedProcess.Person.BirthDate.ToShortDateString()</MudText>
                     </MudCardContent>
                 </MudCard>
             </MudItem>
             <MudItem xs="6">
                 <MudCard Class="mud-height-full d-flex">
                     <MudCardContent>
-                        <MudText Typo="Typo.h6">Exams</MudText>
+                        <MudText Typo="Typo.h6">Exames</MudText>
                         @foreach (Exam e in SelectedProcess.Exams)
                         {
                             <MudText Class="py-1">@e.Id - @e.Name</MudText>
