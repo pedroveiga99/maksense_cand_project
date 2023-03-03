@@ -11,3 +11,7 @@
     padding: 3px 10px 3px 10px;
     table-layout: auto;
 }
+
+a, a label {
+    cursor: pointer;
+}

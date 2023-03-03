@@ -11,3 +11,7 @@ body[b-muwr2nm098] {
     padding: 3px 10px 3px 10px;
     table-layout: auto;
 }
+
+a[b-muwr2nm098], a label[b-muwr2nm098] {
+    cursor: pointer;
+}

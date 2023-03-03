@@ -3,6 +3,7 @@
 @inject IJSRuntime jsRuntime
 @inject ApiService api
 @inject NavigationManager NavManager
+@inject IDialogService DialogService
 
 
 
@@ -50,13 +51,28 @@
             <!-- Exams -->
             <tr>
                 <td colspan="3">
+                    <MudGrid Justify="Justify.FlexStart">
+                        @for(int i = 0; i < AvailableExams.Count; i++)
+                        {
+                            Exam e = AvailableExams[i];
+                            <MudItem>
+                                <MudPaper Outlined="true" Class="px-3 justify-start">
+                                    <MudCheckBox Label="@e.Name" CheckedChanged="((bool state) => checkExam(state, e))"></MudCheckBox>
+
+                                </MudPaper>
+                            </MudItem>
+                        }
+
+                    </MudGrid>
+                    <!--
                     @foreach (Exam e in AvailableExams)
                     {
                         <MudCheckBox Label="@e.Name" CheckedChanged="((bool state) => checkExam(state, e))"></MudCheckBox>
                     }
-
+                    -->
                     @if (!examsValid)
                     {
+                        <br />
                         <MudAlert Severity="Severity.Error" Variant="Variant.Outlined">Selecione pelo menos um exame</MudAlert>
                     }
                 </td>
@@ -126,9 +142,15 @@
 
         Process newProcess = await api.PostProcessAsync(tempProcess);
 
-        confirmationPopup.Title = $"Adicionado o Processo {newProcess.Id.ToString()} ({newProcess.ProcessDate.ToShortDateString()})";
-        confirmationPopup.process = newProcess;
-        confirmationPopup.Show();
+        // Open Dialog
+        var options = new DialogOptions { CloseOnEscapeKey = true };
+
+        var parameters = new DialogParameters();
+        parameters.Add("SelectedProcess", newProcess);
+
+        string title = $"Adicionado o Processo {newProcess.Id.ToString()} ({newProcess.ProcessDate.ToShortDateString()})";
+
+        DialogService.Show<DetailsPopup>(title, parameters, options);
 
         // Reset form information
         tempProcess = new Process
@@ -137,8 +159,6 @@
             Exams = new List<Exam>()
         };
         StateHasChanged();
-
-
 
     }
 
@@ -157,5 +177,6 @@
         jsRuntime.InvokeVoidAsync("console.log", "Invalid");
         jsRuntime.InvokeVoidAsync("console.log", tempProcess);
         StateHasChanged();
+
     }
 }

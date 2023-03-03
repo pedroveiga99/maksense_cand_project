@@ -12,6 +12,10 @@ body[b-muwr2nm098] {
     padding: 3px 10px 3px 10px;
     table-layout: auto;
 }
+
+a[b-muwr2nm098], a label[b-muwr2nm098] {
+    cursor: pointer;
+}
 /* _content/MedicalExams/Pages/ScheduleExams.razor.rz.scp.css */
 body[b-pif763rdsc] {
 }
@@ -37,11 +41,6 @@ td[b-pif763rdsc] {
     border: 1px solid black;
 }
 
-/* _content/MedicalExams/Shared/DetailsIcon.razor.rz.scp.css */
-a[b-4a24xpv9nl],
-a label[b-4a24xpv9nl] {
-    cursor: pointer;
-}
 /* _content/MedicalExams/Shared/DetailsPopup.razor.rz.scp.css */
 body[b-u11i4z6v1j] {
 }

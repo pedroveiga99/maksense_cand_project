@@ -9,6 +9,10 @@ public class Exam
     public static Exam Exam3 = new(3, "Exam 3");
     public static Exam Exam4 = new(4, "Exam 4");
     public static Exam Exam5 = new(5, "Exam 5");
+    public static Exam Exam6 = new(6, "Exam 6");
+    public static Exam Exam7 = new(7, "Exam 7");
+    public static Exam Exam8 = new(8, "Exam 8");
+    public static Exam Exam9 = new(9, "Exam 9");
 
 
     public static List<Exam> PossibleExams = new List<Exam>
@@ -17,7 +21,11 @@ public class Exam
         Exam2,
         Exam3,
         Exam4,
-        Exam5
+        Exam5,
+        Exam6,
+        Exam7,
+        Exam8,
+        Exam9
     };
 
 

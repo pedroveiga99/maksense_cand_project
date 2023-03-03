@@ -1,58 +1,13 @@
 ﻿@page "/consultExams"
 
-
 @inject IJSRuntime jsRuntime
 @inject ApiService api
-
+@inject IDialogService DialogService
 
 
 <h3>Consulta de Exames</h3>
 <br />
 <br />
-
-<!--
-<div style="text-align:center">
-    <EditForm Model="submitedNumUtente">
-        Numero de utente: <InputNumber @bind-Value=submitedNumUtente ></InputNumber>
-    </EditForm>
-</div>
-
-<table id="ConsultExamsTable" style="text-align:center" >
-
-    <thead>
-        <tr>
-            <th>Id</th>
-            <th>Data Criação</th>
-            <th>Nome</th>
-            <th>Quantidade de Exames</th>
-            <th>+Info</th>
-        </tr>
-    </thead> 
-    <tbody>
-        @if (processes.Count != 0)
-        {
-            @foreach (var process in processes)
-            {
-                <tr>
-                    <td>@process.Id</td>
-                    <td>@process.ProcessDate.ToShortDateString()</td>
-                    <td>@process.Person.Name</td>
-                    <td>@process.Exams.Count</td>
-                    <td><DetailsIcon Popup="detailsPopup" SelectedProcess="process" Show="ShowDetails"></DetailsIcon></td>
-                </tr>
-            }
-        }
-        else
-        {
-            <tr><td colspan="2" style="text-align:center">No data to show</td></tr>
-        }
-    </tbody>
-</table>
-
-<br />
-<br />
--->
-
 
 <MudTable Items="@processes" Hover="true" Filter="new Func<Process,bool>(FilterFunc)" FixedHeader="true" Height="@(true ?"500px":"")">
     <ToolBarContent>
@@ -76,7 +31,9 @@
         <MudTd DataLabel="Data Criação">@context.ProcessDate.ToShortDateString()</MudTd>
         <MudTd DataLabel="Nome">@context.Person.Name</MudTd>
         <MudTd DataLabel="Quantidade de Exames">@context.Exams.Count</MudTd>
-        <MudTd DataLabel="+Info"><DetailsIcon Popup="detailsPopup" SelectedProcess="@context" Show="ShowDetails"></DetailsIcon></MudTd>
+        <MudTd DataLabel="+Info">
+            <a @onclick="(() => OpenDialog(context))"><span class="oi oi-clipboard" aria-hidden="true"></span></a>
+        </MudTd>
     </RowTemplate>
     <PagerContent>
         <MudTablePager PageSizeOptions="@pageSizeOptions" RowsPerPageString="Processos por página" />
@@ -96,18 +53,9 @@
     public int[] pageSizeOptions = { 5, 7, 10, 20, int.MaxValue };
     public string searchString = "";
 
-
     protected override async Task OnInitializedAsync()
     {
         processes = await api.GetProcessesAsync();
-    }
-
-    private void ShowDetails(Process process)
-    {
-        detailsPopup.Title = $"Mais Detalhes do Processo {process.Id.ToString()} ({process.ProcessDate.ToShortDateString()})";
-
-        detailsPopup.process = process;
-        detailsPopup.Show();
     }
 
     private bool FilterFunc(Process process)
@@ -124,4 +72,16 @@
 
         return false;
     }
+
+    private void OpenDialog(Process SelectedProcess)
+    {
+        var options = new DialogOptions { CloseOnEscapeKey = true };
+
+        var parameters = new DialogParameters();
+        parameters.Add("SelectedProcess", SelectedProcess);
+
+        DialogService.Show<DetailsPopup>("Title", parameters, options);
+    }
+
+
 }

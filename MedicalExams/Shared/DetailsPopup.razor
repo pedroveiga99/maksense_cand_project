@@ -1,42 +1,42 @@
 ﻿@inject IJSRuntime jsRuntime
 
-@if (showPopup)
-{
-    <div class="modal-backdrop show"></div>
-    <div class="modal fade show" style="display:block" tabindex="-1">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">@Title</h5>
-                    <button type="button" @onclick="Hide" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <DetailsPopupContent SelectedProcess="process"></DetailsPopupContent>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" @onclick="Hide" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <!--<button type="button" class="btn btn-danger">Confirm</button>-->
-                </div>
-            </div>
-        </div>
-    </div>
-}
+<MudDialog>
+    <DialogContent>
+        <MudGrid>
+            <MudItem xs="6">
+                <MudCard Class="mud-height-full d-flex">
+                    <MudCardContent>
+                        <MudText Typo="Typo.h6">Info Pessoal</MudText>
+                        <MudText Class="py-1">Nome: @SelectedProcess.Person.Name</MudText>
+                        <MudText Class="py-1">Nº Utente: @SelectedProcess.Person.NumUtente</MudText>
+                        <MudText Class="py-1">Data Nascimento: @SelectedProcess.Person.BirthDate.ToShortDateString()</MudText>
+                    </MudCardContent>
+                </MudCard>
+            </MudItem>
+            <MudItem xs="6">
+                <MudCard Class="mud-height-full d-flex">
+                    <MudCardContent>
+                        <MudText Typo="Typo.h6">Exams</MudText>
+                        @foreach (Exam e in SelectedProcess.Exams)
+                        {
+                            <MudText Class="py-1">@e.Id - @e.Name</MudText>
+                        }
+                    </MudCardContent>
+                </MudCard>
+            </MudItem>
+        </MudGrid>
+    </DialogContent>
+    <DialogActions>
+        <MudButton OnClick="Hide">Close</MudButton>
+    </DialogActions>
+</MudDialog>
 
 
 @code {
-    private bool showPopup = false;
+    [CascadingParameter] MudDialogInstance MudDialog { get; set; }
 
-    public string Title { get; set; }
-    public Process process { get; set; }
+    [Parameter] public Process SelectedProcess { get; set; }
 
-
-    //public void Show() => showPopup = true;
-    public void Show()
-    {
-        showPopup = true;
-        StateHasChanged();
-    }
-    public void Hide() => showPopup = false;
-
+    public void Hide() => MudDialog.Close();
 
 }
