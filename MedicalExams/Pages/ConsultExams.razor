@@ -17,7 +17,7 @@
     </EditForm>
 </div>
 
-<table id="ConsultExamsTable" style="text-align:center">
+<table id="ConsultExamsTable" style="text-align:center" >
 
     <thead>
         <tr>
@@ -52,17 +52,7 @@
 <br />
 <br />
 -->
-<!--
-<MudTextField 
-    @bind-Value="searchString" 
-    Placeholder="Search" 
-    Adornment="Adornment.Start" 
-    AdornmentIcon="@Icons.Material.Filled.Search" 
-    IconSize="Size.Medium" 
-    Class="mt-0">
-</MudTextField>
 
--->
 
 <MudTable Items="@processes" Hover="true" Filter="new Func<Process,bool>(FilterFunc)" FixedHeader="true" Height="@(true ?"500px":"")">
     <ToolBarContent>

@@ -10,50 +10,62 @@
 <br />
 <br />
 
-<EditForm Model="tempProcess" OnValidSubmit=@ValidFormSubmitted OnInvalidSubmit=@InvalidFormSubmitted>
+<EditForm Model="@tempProcess" OnValidSubmit="ValidFormSubmitted" OnInvalidSubmit="InvalidFormSubmitted">
     <ObjectGraphDataAnnotationsValidator />
-    <!-- <ValidationSummary /> -->
 
     <table id="ScheduleExamsTable">
-        
         <tbody>
             <!-- Personal Information -->
             <tr>
                 <td style="width:35%">
                     <div class="form-group">
-                        <label for="numUtente">Número de Utente:</label><br />
-                        <InputNumber Arrows="false" @bind-Value=tempProcess.Person.NumUtente></InputNumber>
-                        <ValidationMessage For="() => tempProcess.Person.NumUtente" />
+                        <MudNumericField 
+                            Label="Número de Utente" 
+                            @bind-Value=tempProcess.Person.NumUtente 
+                            For="@(() => tempProcess.Person.NumUtente)" 
+                            OnlyValidateIfDirty="true">
+                        </MudNumericField>
                     </div>
                 </td>
                 <td style="width:35%">
                     <div class="form-group">
-                        <label for="nome">Nome</label><br />
-                        <InputText @bind-Value=tempProcess.Person.Name></InputText>
-                        <ValidationMessage For="() => tempProcess.Person.Name" />
+                        <MudTextField 
+                            Label="Nome" 
+                            @bind-Value=tempProcess.Person.Name 
+                            For="@(() => tempProcess.Person.Name)" 
+                            OnlyValidateIfDirty="true">
+                        </MudTextField>
                     </div>
                 </td>
                 <td>
                     <div class="form-group">
-                        <label for="birthDate">Data de Nascimento</label><br />
-                        <InputDate @bind-Value=tempProcess.Person.BirthDate></InputDate>
-                        <ValidationMessage For="() => tempProcess.Person.BirthDate" />
+                        
+                        <MudDatePicker 
+                            Label="Data de Nascimento" 
+                            @bind-Date="selectedDate">
+                        </MudDatePicker>
                     </div>
                 </td>
             </tr>
-            
             <!-- Exams -->
             <tr>
                 <td colspan="3">
-                    <TestCheckBoxList Data="@AvailableExams" SelectedValues="@tempProcess.Exams" />
-                    <ValidationMessage For="() => tempProcess.Exams" />
+                    @foreach (Exam e in AvailableExams)
+                    {
+                        <MudCheckBox Label="@e.Name" CheckedChanged="((bool state) => checkExam(state, e))"></MudCheckBox>
+                    }
+
+                    @if (!examsValid)
+                    {
+                        <MudAlert Severity="Severity.Error" Variant="Variant.Outlined">Selecione pelo menos um exame</MudAlert>
+                    }
                 </td>
             </tr>
         </tbody>
         <tfoot>
             <tr>
                 <td colspan ="3">
-                    <input type="submit" class="btn btn-primary" value="Marcar Exames" />
+                    <MudButton ButtonType="ButtonType.Submit" Variant="Variant.Filled" Color="Color.Primary">Marcar exames</MudButton>
                 </td>
             </tr>
         </tfoot>
@@ -72,11 +84,37 @@
         };
 
     public List<Exam> AvailableExams = new List<Exam>();
-    public DetailsPopup confirmationPopup;
+    public DetailsPopup? confirmationPopup;
+    public DateTime? selectedDate = DateTime.Now;
+
+    public bool examsValid = true;
 
     protected override async Task OnInitializedAsync()
     {
         AvailableExams = await api.GetAllAvailableExams();
+    }
+
+    public void checkExam(bool state, Exam e)
+    {
+        if (state)
+        {
+            tempProcess.Exams.Add(e);
+        }
+        else
+        {
+            tempProcess.Exams.Remove(e);
+        }
+
+        if (tempProcess.Exams.Count <= 0)
+        {
+            examsValid = false;
+        }
+        else
+        {
+            examsValid = true;
+        }
+
+        StateHasChanged();
     }
 
     public async void ValidFormSubmitted()
@@ -100,13 +138,24 @@
         };
         StateHasChanged();
 
-        
+
 
     }
 
     public void InvalidFormSubmitted()
     {
+        if (tempProcess.Exams.Count <= 0)
+        {
+            examsValid = false;
+        }
+        else
+        {
+            examsValid = true;
+        }
+
+
         jsRuntime.InvokeVoidAsync("console.log", "Invalid");
         jsRuntime.InvokeVoidAsync("console.log", tempProcess);
+        StateHasChanged();
     }
 }

@@ -1,0 +1,56 @@
+﻿@inject IJSRuntime jsRuntime
+
+
+<div>
+    @if (Data != null)
+    {
+        foreach (Exam exam in Data)
+        {
+            <!--
+            string Name = exam.Name;
+            int Id = exam.Id;
+            bool Checked = false;
+
+            if (SelectedValues.Contains(exam))
+            {
+                Checked = true;
+            }
+            
+            <input type="checkbox" checked=@Checked @onchange="eventArgs => { CheckboxClicked(exam, eventArgs.Value); }" />
+            @Name <br />
+
+
+            @onchange="eventArgs => { CheckboxClicked(i, Data); }"
+
+            -->
+        }
+
+        for(int i=0; i < Data.Count; i++)
+        {
+            jsRuntime.InvokeVoidAsync("console.log", "NOVO");
+            jsRuntime.InvokeVoidAsync("console.log", Data);
+            jsRuntime.InvokeVoidAsync("console.log", SelectedValues);
+            <MudCheckBox @bind-Checked="@SelectedValues[i]" Label="@Data[i].Name" @onchange="eventArgs => { CheckboxClicked(i); }"></MudCheckBox>
+        }
+    }
+</div>
+
+@code {
+    //Data for the Checkbox
+    [Parameter] public List<Exam> Data { get; set; }
+    // The array which contains the list of selected checkboxs
+    [Parameter] public List<bool> SelectedValues { get; set; }
+
+    //protected override async Task OnInitializedAsync()
+    //{
+    //    sel = new List<bool>(new bool[100]);
+    //}
+
+
+    //Method to update the selected value on click on checkbox
+    public void CheckboxClicked(int i)
+    {
+        //SelectedValues[i] = !SelectedValues[i];
+        Console.WriteLine("aqui");
+    }
+} 
