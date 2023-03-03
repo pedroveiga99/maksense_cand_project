@@ -3,3 +3,78 @@
 <h1>Developer Challenge - Maksense</h1>
 
 
+<MudGrid>
+    <MudItem xs="12">
+        <MudCard>
+            <MudCardHeader>
+                <MudText Typo="Typo.h5">Front-End</MudText>
+            </MudCardHeader>
+            <MudCardContent>
+                <MudText>
+                    O "Medical Exams" é uma aplicação em Blazor com apoio de uma biblioteca de componentes MudBlazor.
+                    Esta plataforma permite aos utilizadores, neste caso médicos, a marcação de exames a diferentes utentes.
+                    Estes dados são guardados remotamente numa API.
+                    Para além disso, podem também ser consultados todos os exames marcados aos utentes.
+                </MudText>
+            </MudCardContent>
+        </MudCard>
+    </MudItem>
+    <MudItem xs="12">
+        <MudCard>
+            <MudCardHeader>
+                <MudText Typo="Typo.h5">Back-End</MudText>
+            </MudCardHeader>
+            <MudCardContent>
+                <MudText>
+                    O back-end da aplicação tem como base uma web API em ASP.NET Core. 
+                    Esta API fornece todos os dados necessários à aplicação.
+                    Na aplicação é possível criar diferentes processos (estrutura abaixo) onde existe 
+                    validação dos dados, não sendo permitida a adição de utentes sem nome
+                    nem sem um número de utente válido (número de 9 algarismos). 
+                    Também não é possível adicionar um novo processo caso não tenha sido selecionado nenhum exame, 
+                    onde a lista de exames disponíveis provém também da API.
+                    Por fim, é também possível consultar todos os processos guardados na API, podendo ver os detalhes de cada um.
+                </MudText>
+                <br />
+                <MudGrid Justify="Justify.Center">
+                    <MudItem >
+                        <MudCard>
+                            <MudCardHeader>
+                                <MudText Typo="Typo.h6">Person</MudText>
+                            </MudCardHeader>
+                            <MudCardContent>
+                                <p><b>Número de Utente -</b> int</p>
+                                <p><b>Nome -</b> string</p>
+                                <p><b>Data de Nascimento -</b> string(date)</p>
+                            </MudCardContent>
+                        </MudCard>
+                    </MudItem>
+                    <MudItem>
+                        <MudCard>
+                            <MudCardHeader>
+                                <MudText Typo="Typo.h6">Exam</MudText>
+                            </MudCardHeader>
+                            <MudCardContent>
+                                <p><b>Id -</b> int</p>
+                                <p><b>Nome -</b> string</p>
+                            </MudCardContent>
+                        </MudCard>
+                    </MudItem>
+                    <MudItem>
+                        <MudCard>
+                            <MudCardHeader>
+                                <MudText Typo="Typo.h6">Process</MudText>
+                            </MudCardHeader>
+                            <MudCardContent>
+                                <p><b>Id -</b> int</p>
+                                <p><b>Pessoa -</b> Person</p>
+                                <p><b>Exames -</b> List&lt;Exam&gt;</p>
+                                <p><b>Data de Processo -</b> string(date)</p>
+                            </MudCardContent>
+                        </MudCard>
+                    </MudItem>
+                </MudGrid>
+            </MudCardContent>
+        </MudCard>
+    </MudItem>
+</MudGrid>
